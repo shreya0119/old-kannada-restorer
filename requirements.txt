@@ -1,0 +1,5 @@
+google-genai
+streamlit
+beautifulsoup4
+lxml
+python-dotenv
