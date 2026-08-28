@@ -1,0 +1,12 @@
+.env
+venv/
+env/
+.venv/
+.idea/
+__pycache__/
+*.pyc
+*.pyo
+data/raw/
+.vscode/
+*swp
+.DS_Store
