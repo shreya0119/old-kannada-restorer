@@ -140,6 +140,8 @@ if __name__ == "__main__":
         default=str(BASE_DIR / "extracted_text.txt"),
         help="Output file path",
     )
+    parser.add_argument("--words", nargs="+", help="Target words to check OCR confidence in DjVu XML")
+    parser.add_argument("--djvu", type=str, default=str(BASE_DIR / "epigraphiacarnat09myso_djvu.xml"), help="Path to DjVu XML file")
 
     args = parser.parse_args()
 
@@ -162,3 +164,10 @@ if __name__ == "__main__":
         print(f"Extracted text saved to {output_path}")
     else:
         print(f"File not found: {input_path}")
+
+    if args.words:
+        djvu_path = Path(args.djvu).resolve()
+        if djvu_path.exists():
+            extract_word_confidence_from_djvu(str(djvu_path), args.words)
+        else:
+            print(f"DjVu file not found: {djvu_path}")
