@@ -4,9 +4,9 @@ import re
 import time
 from typing import Any, Dict, List, Optional
 from dotenv import load_dotenv
-from google import genai
 
 from src.prompts import build_restoration_prompt
+from src.llm_client import call_llm
 
 load_dotenv()
 
@@ -17,44 +17,23 @@ def restore_gap(
     api_key: Optional[str] = None
 ) -> Dict[str, Any]:
     """
-    Restores missing text in masked_text using Gemini API.
+    Restores missing text in masked_text using the LLM client.
 
     Args:
         masked_text: Inscription text with '[...]' marking a missing word.
         examples: Reference example inscriptions with text, dynasty, date.
-        api_key: Optional API key override; defaults to GEMINI_API_KEY env var.
+        api_key: Optional API key override; if provided, temporarily sets GEMINI_API_KEY.
 
     Returns:
         Parsed dict response from model or dict with an 'error' key on failure.
     """
-    key = api_key or os.getenv("GEMINI_API_KEY")
-    if not key:
-        return {"error": "GEMINI_API_KEY not found in environment or passed parameters."}
+    if api_key:
+        os.environ["GEMINI_API_KEY"] = api_key
 
     prompt = build_restoration_prompt(masked_text, examples)
 
     try:
-        client = genai.Client(api_key=key)
-        
-        # Simple retry for 429 rate limit
-        for attempt in range(5):
-            try:
-                response = client.models.generate_content(
-                    model="gemini-3.6-flash",
-                    contents=prompt,
-                )
-                break
-            except Exception as e:
-                err_str = str(e)
-                if "429" in err_str and attempt < 4:
-                    # Parse retry delay if available or default to 30s
-                    match = re.search(r"retryDelay':\s*'(\d+)s'", err_str)
-                    sleep_time = int(match.group(1)) + 2 if match else 30
-                    time.sleep(sleep_time)
-                else:
-                    raise e
-
-        raw_text = response.text or ""
+        raw_text = call_llm(prompt)
 
         # Strip markdown code fences if present
         cleaned_text = re.sub(r"^```(?:json)?\s*", "", raw_text.strip(), flags=re.MULTILINE)
@@ -70,7 +49,7 @@ def restore_gap(
             }
 
     except Exception as exc:
-        return {"error": f"Gemini API request failed: {str(exc)}"}
+        return {"error": f"LLM request failed: {str(exc)}"}
 
 
 if __name__ == "__main__":
