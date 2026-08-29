@@ -3,12 +3,230 @@ import random
 import re
 from pathlib import Path
 import streamlit as st
+import pandas as pd
 
 from src.restore import restore_gap
 from src.dynasty import guess_dynasty
 
 # Ensure page config is set
 st.set_page_config(page_title="Old Kannada Restorer", layout="wide")
+
+def apply_stone_theme():
+    st.markdown(
+        """
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Spectral:wght@400;700&family=Yatra+One&display=swap');
+
+        :root {
+            --bg-primary: #201D19;
+            --bg-surface: #2E2A25;
+            --bg-elevated: #3A352E;
+            --text-primary: #D9D0C1;
+            --text-muted: #948A7A;
+            --accent: #8B5A3C;
+            --accent-hover: #A66F4D;
+            --match-color: #6E7C5A;
+            --nomatch-color: #8C4B3D;
+        }
+
+        /* 4. Style the overall app background */
+        .stApp {
+            background-color: var(--bg-primary);
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(255, 255, 255, 0.02) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                linear-gradient(rgba(32, 29, 25, 0.85), rgba(32, 29, 25, 0.85)),
+                url('https://commons.wikimedia.org/wiki/Special:FilePath/Halmidi_OldKannada_inscription.JPG');
+            background-size: auto, cover, cover;
+            background-position: center, center, center;
+            background-repeat: repeat, no-repeat, no-repeat;
+            background-attachment: scroll, fixed, fixed;
+        }
+
+        /* Ensure transparent backgrounds for content containers so the watermark shows through */
+        .stMainBlockContainer, [data-testid="stHeader"] {
+            background: transparent !important;
+        }
+
+        /* 5. Headings and typography */
+        html {
+            font-size: calc(100% + 1pt);
+        }
+
+        h1, h2, h3, h4, h5, h6, .st-emotion-cache-10trblm h1 {
+            font-family: 'Yatra One', cursive !important;
+            color: var(--text-primary) !important;
+            letter-spacing: 0.05em;
+        }
+        
+        .stApp, p, div, span, label {
+            font-family: 'Spectral', serif;
+            color: var(--text-primary);
+        }
+        
+        small, .stCaption, [data-testid="stCaptionContainer"] p, [data-testid="stCaptionContainer"] span {
+            font-family: 'Spectral', serif;
+            color: var(--text-muted) !important;
+        }
+
+        /* Inscription ID text and table data */
+        table, th, td, [data-testid="stSelectbox"] div, [data-testid="stSelectbox"] span {
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+
+        /* 6. Mode 1 / Mode 2 tab selector */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 10px;
+        }
+        .stTabs [data-baseweb="tab"] {
+            background-color: var(--bg-surface) !important;
+            border-radius: 8px 8px 0 0 !important;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2) !important;
+            border-bottom: 3px solid transparent !important;
+            padding: 10px 20px !important;
+            border-top: 1px solid var(--bg-elevated);
+            border-left: 1px solid var(--bg-elevated);
+            border-right: 1px solid var(--bg-elevated);
+        }
+        .stTabs [data-baseweb="tab"][aria-selected="true"] {
+            border-bottom: 3px solid var(--accent) !important;
+            background-color: var(--bg-elevated) !important;
+        }
+        .stTabs [data-baseweb="tab"] p {
+            font-family: 'Yatra One', cursive !important;
+            color: var(--text-primary) !important;
+            font-size: calc(100% + 4pt) !important;
+        }
+
+        /* 7. Stone Panel and Gap */
+        .stone-panel {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--bg-elevated);
+            padding: 15px;
+            color: var(--text-primary);
+            font-family: 'Spectral', serif;
+            border-radius: 4px;
+            min-height: 100px;
+            white-space: pre-wrap;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .stone-gap {
+            background-color: var(--accent);
+            padding: 0 15px;
+            /* Jagged notch effect */
+            clip-path: polygon(2% 10%, 98% 5%, 100% 90%, 5% 95%, 8% 50%);
+            display: inline-block;
+            color: var(--text-primary);
+        }
+
+        /* 8. Mode 2 free-text input */
+        .stTextArea textarea {
+            background-color: var(--bg-surface) !important;
+            border: 1px solid var(--bg-elevated) !important;
+            color: var(--text-primary) !important;
+            font-family: 'Spectral', serif !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3) !important;
+        }
+
+        /* Override Streamlit's default red focus borders globally */
+        div[data-baseweb="input"] > div,
+        div[data-baseweb="select"] > div,
+        textarea {
+            transition: border-color 0.2s, box-shadow 0.2s !important;
+        }
+        
+        div[data-baseweb="input"]:focus-within > div,
+        div[data-baseweb="select"]:focus-within > div,
+        textarea:focus {
+            border-color: #D4AF37 !important;
+            box-shadow: 0 0 0 1px #D4AF37 !important;
+        }
+
+        /* 9. Restyle st.button */
+        .stButton button {
+            background-color: var(--bg-elevated) !important;
+            border: 1px solid var(--accent) !important;
+            color: var(--text-primary) !important;
+            font-family: 'Yatra One', cursive !important;
+            font-variant: small-caps !important;
+            border-radius: 4px !important;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3) !important;
+            transition: all 0.2s ease !important;
+        }
+        .stButton button:hover {
+            background-color: var(--accent) !important;
+            color: var(--bg-primary) !important;
+            border-color: var(--accent-hover) !important;
+        }
+
+        /* 10. Eval Summary */
+        [data-testid="stMetricValue"] div {
+            font-family: 'JetBrains Mono', monospace !important;
+            color: var(--accent) !important;
+        }
+        [data-testid="stMetricLabel"] p, [data-testid="stMetricLabel"] div {
+            color: var(--text-muted) !important;
+            font-family: 'Spectral', serif !important;
+        }
+        /* 11. Alerts / Messages */
+        [data-testid="stAlert"] {
+            background-color: var(--bg-elevated) !important;
+            color: var(--text-primary) !important;
+        }
+        [data-testid="stAlert"] p, [data-testid="stAlert"] span {
+            color: var(--text-primary) !important;
+        }
+        /* Success */
+        div[data-testid="stAlert"]:has(> div[data-baseweb="notification"] > div[role="alert"][aria-label="Success"]) {
+            border-left: 4px solid var(--match-color) !important;
+        }
+        /* Error */
+        div[data-testid="stAlert"]:has(> div[data-baseweb="notification"] > div[role="alert"][aria-label="Error"]) {
+            border-left: 4px solid var(--nomatch-color) !important;
+        }
+        /* Info */
+        div[data-testid="stAlert"]:has(> div[data-baseweb="notification"] > div[role="alert"][aria-label="Info"]) {
+            border-left: 4px solid var(--accent) !important;
+        }
+        /* Warning */
+        div[data-testid="stAlert"]:has(> div[data-baseweb="notification"] > div[role="alert"][aria-label="Warning"]) {
+            border-left: 4px solid var(--accent-hover) !important;
+        }
+
+        /* 12. Eval Table Custom HTML */
+        .eval-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid var(--bg-elevated);
+        }
+        .eval-table th, .eval-table td {
+            font-family: 'JetBrains Mono', monospace;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--bg-elevated);
+        }
+        .eval-table th {
+            background-color: var(--bg-elevated);
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        .eval-table tr:nth-child(even) {
+            background-color: var(--bg-elevated);
+        }
+        .eval-table tr:nth-child(odd) {
+            background-color: var(--bg-surface);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+apply_stone_theme()
 
 @st.cache_data
 def load_data():
@@ -53,12 +271,13 @@ def contains_non_latin(text):
     return False
 
 def main():
-    st.title("Old Kannada Inscription Restorer")
+    st.markdown("<h1 style='text-align: center; font-size: calc(2.25rem + 2pt);'>Halegannada Inscription Restorer</h1>", unsafe_allow_html=True)
     st.markdown("""
-        **Welcome to the Old Kannada Inscription Restorer.**
-        
+        <p style='font-size: calc(100% + 2pt);'>
+            
         This prototype uses large language models (Gemini & Groq) with few-shot prompting to deduce missing words in transliterated Old Kannada inscriptions. Rather than relying on a custom-trained model, it dynamically builds context using a curated reference dataset to restore damaged text and estimate the dynasty/date of the artifact.
-    """)
+        </p>
+    """, unsafe_allow_html=True)
     st.write("") # Light spacing
     
     inscriptions = load_data()
@@ -70,7 +289,7 @@ def main():
 
     # --- MODE 1: VERIFIED ---
     with tab1:
-        st.header("Verified Inscriptions")
+        st.markdown("### Verified Inscriptions")
         
         # Dropdown selection
         options = {ins["id"]: ins for ins in inscriptions}
@@ -89,11 +308,15 @@ def main():
         masked_text = st.session_state[state_key_masked]
         target_word = st.session_state[state_key_target]
         
-        st.subheader("Original Text:")
-        st.text_area("Original", selected_ins["text"], height=150, disabled=True, key=f"orig_{selected_id}")
+        st.markdown("#### Original Text")
+        st.markdown(f'<div class="stone-panel">{selected_ins["text"]}</div>', unsafe_allow_html=True)
         
-        st.subheader("Masked Text (Input):")
-        st.text_area("Masked", masked_text, height=150, disabled=True, key=f"mask_{selected_id}")
+        st.markdown("#### Masked Text (Input)")
+        # Find [...] and wrap it in the stone-gap span
+        masked_html = masked_text.replace("[...]", '<span class="stone-gap">[...]</span>')
+        st.markdown(f'<div class="stone-panel">{masked_html}</div>', unsafe_allow_html=True)
+        
+        st.write("") # spacing
         
         if st.button("Restore", key="btn_mode1"):
             st.caption("Uses automatic multi-key, multi-provider failover (Gemini + Groq) for reliability.")
@@ -157,7 +380,7 @@ def main():
 
     # --- MODE 2: FREE TEXT ---
     with tab2:
-        st.header("Free Text Input")
+        st.markdown("### Free Text Input")
         st.write("Paste transliterated Old Kannada text. Mark exactly one missing word with `[...]`.")
         
         user_input = st.text_area("Input Text", height=200, placeholder="e.g., svasti śrî jayâbhyudaya [...] saṁvatsarada...")
@@ -201,7 +424,7 @@ def main():
 
 # EVAL SUMMARY SECTION GOES HERE
     st.markdown("---")
-    st.header("Evaluation Summary (Curated Benchmark)")
+    st.markdown("### Evaluation Summary (Curated Benchmark)")
     st.caption("These results are loaded statically from the rigorous evaluation phase (results/eval_results.json) and are not live-recomputed.")
     
     eval_path = Path("results/eval_results.json")
@@ -225,25 +448,30 @@ def main():
         col2.metric("Zero-Shot Exact Match", f"{zeroshot_exact}/12")
         col3.metric("Few-Shot Exact Match", f"{fewshot_exact}/12")
         
-        st.subheader("Per-Inscription Breakdown (Few-Shot)")
+        st.markdown("#### Per-Inscription Breakdown (Few-Shot)")
         
-        table_data = []
+        table_html = '<table class="eval-table">'
+        table_html += '<thead><tr><th>ID</th><th>True Masked Word</th><th>Few-Shot Top Candidate</th><th>Match Status</th></tr></thead><tbody>'
+        
         for res in eval_data.get("per_inscription_results", []):
             fs_data = res.get("few_shot", {})
             candidates = fs_data.get("candidates", [])
             top_cand = candidates[0] if candidates else "N/A"
-            match_status = "✅ Match" if fs_data.get("exact_match_normalized", False) else "❌ No Match"
+            is_match = fs_data.get("exact_match_normalized", False)
+            match_status = "✅ Match" if is_match else "❌ No Match"
             
-            table_data.append({
-                "ID": res.get("id", ""),
-                "True Masked Word": res.get("masked_word", ""),
-                "Few-Shot Top Candidate": top_cand,
-                "Match Status": match_status
-            })
+            # Use inline styles for the color since it needs to render raw
+            color_var = "var(--match-color)" if is_match else "var(--nomatch-color)"
             
-        st.table(table_data)
+            table_html += f'<tr><td>{res.get("id", "")}</td><td>{res.get("masked_word", "")}</td><td>{top_cand}</td><td style="color: {color_var}; font-weight: bold;">{match_status}</td></tr>'
+            
+        table_html += '</tbody></table>'
+        st.markdown(table_html, unsafe_allow_html=True)
     else:
         st.warning("No evaluation results found at results/eval_results.json")
+
+    # Image attribution
+    st.markdown("<p style='text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 3rem;'>Background: Halmidi inscription (450 CE) photograph by Dineshkannambadi, CC BY-SA 3.0, via Wikimedia Commons.</p>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
