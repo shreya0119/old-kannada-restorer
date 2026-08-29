@@ -260,12 +260,6 @@ def evaluate():
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # Sync to src/evaluate.py
-    src_eval_path = os.path.join("src", "evaluate.py")
-    with open(src_eval_path, "w", encoding="utf-8") as f_src:
-        with open(__file__, "r", encoding="utf-8") as f_self:
-            f_src.write(f_self.read())
-
     print("\n=== EVALUATION COMPLETE ===")
     print(aggregate_summary["baseline"])
     print(aggregate_summary["zero_shot"])
