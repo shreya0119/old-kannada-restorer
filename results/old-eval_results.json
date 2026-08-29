@@ -1,0 +1,330 @@
+{
+  "aggregate": {
+    "total_evaluated": 10,
+    "baseline": "Baseline (Raw): 0/10 exact | Baseline (Normalized): 0/10 exact",
+    "zero_shot": "Zero-shot (Raw): 3/10 exact, 3/10 top-3 | Zero-shot (Normalized): 3/10 exact, 3/10 top-3",
+    "few_shot": "Few-shot (Raw): 4/10 exact, 4/10 top-3 | Few-shot (Normalized): 4/10 exact, 4/10 top-3"
+  },
+  "per_inscription_results": [
+    {
+      "id": "EC_VOL_9_INS_001-bn-42",
+      "masked_word": "Śiva-Bhîmaga",
+      "masked_text": "svasti śrî [...] pratishṭege ombad-imbaruṁ bandu paḷirkkoḷam kaḷani okkaṇḍugaṁ kemma koṭṭan idam kiḍippôn Bâraṇâsiyan aḷida pañcha-mahâpâtakan akkuṁ śrî-Râchamalla-Permmânaḍi râjyaṁ geye niltôdu",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "devara",
+          "lingada",
+          "basadiya"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "dêvara",
+          "basaḍiya",
+          "kalla"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_002-bn-104",
+      "masked_word": "Amarapurânukâriṇa",
+      "masked_text": "svasti [...] vijayavata Kaliṅga-nagarâdhivâsakân Mahêndrachalâmala-śikhara-pratishṭitasya sacharâchara-gurô sakala-bhuvana-nirmâṇaika-sûtradhârasya śaśâṅka-chûḍâmaṇêr bhagavatô Gôkarṇa-svâminaś charaṇa-kamalârâdhanaika-tatparô'nêkâhava-saṁkshôbha-jâtâ tijaya-śabdaḥ pratâ pâ vanata-sa ma sta-sâmanta-chakra-chûḍâmaṇi-prabhâ-mañjarî-puñja-rañjita-vara-charaṇa-yugalô mahârâjâdhirâja paramêśvara śrî-Râjêndravarma-sûnu-śrî-Dêvêndravarma-Dêva ḥ kuśalî Varâhavartanyaṁ Sidhatâ-grâma-samanvayâmi koṭumbina s samâjñâpayati viditam astu vô yathâyaṁ grâma ḥ Paramêśva ra parama-bhaṭṭâraka-pûjanârtham charu-dhûpa-ni vêdyânâm Pâlukôsu-vâstavya-Kateya-sûtra-pañcha-vratâ Lâtukâya bhû-dhana-mâtâ-pitrôr âtmanaś cha puṇyâyur-yaśa-âdi-vṛiddhayê ayana-saṁkrântyâm udaka-pû rva kam kṛitvâ pratipâditîti atra cha sîmâ-liṅgâni likhyantê śrôtraya-stâpitam idaṁ Śrîparvata-vâsi-Navanîtarâśi-guravê atra cha Vyâsa-gîtâni ślôkâ bhavanti bahubhir vasudhâ dattâ râjabhi s Sagarâdibhi ḥ yasya yasya yadâ bhûmi s tasya tasya tadâ phalam sva-dattâm para-dattâm vâ yô harêta vasundharâm sa vishṭhâyâm krimir bhûtvâ piṭribhis saha pachyatê Utnina Śrîkhaṇḍi vili",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "śrîmatô",
+          "śrîmataḥ",
+          "śrîmat"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "śrîmato",
+          "śrî",
+          "śrîmat"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_003-nl-83",
+      "masked_word": "Nandana-saṁvatsarada",
+      "masked_text": "svastî śrî jayâbhyudaya-Śâlivâhana-śaka-varusha 1454 neya [...] pratama-Bhâdrapada-ba 30 sûryyôparâga-puṇya-kâladallu śrîman-mahârâjâdhirâja râja-paramêśvara Kaṭhâri Sâlva śrî-vîra-pratâpa śrî-Achyuta-Râya-mahârâya pṛithvî-râjyaṁ geyiütta yiha kâladallu śrî-dakshiṇa-Kâsî-nivâsa śrî-Gaṅgâdhara-dêvara abhishêka-pûje-nayivêdya-dîpârâdhane-modalâda amṛitapaḍige sârvva-kâladallu sallabêkû endu avara kaṭṭigeya Kâmaṇṇa-Nâyakaru śrî-Achyuta-Râyarige dharmavâgabêkû yendu Śrîpatiyahaḷḷiy emba grâmavanu puravâgi koṭṭu â-grâmakke salluva chatus-sîmey-oḷagaṇa sarvva-svâmyavanu sa-hiraṇyôdaka-dhârâ-purvvakadiṁ śrî-Gaṅgâdhara-dêvarige samarppaṇe mâḍideû",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "Nandana-saṁvatsarada",
+          "Nandana-nâma-saṁvatsarada",
+          "Nandana-saṁvatsara"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      },
+      "few_shot": {
+        "candidates": [
+          "Nandana-saṁvatsarada",
+          "Nandana-samvatsarada",
+          "Khara-saṁvatsarada"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_004-ma-1",
+      "masked_word": "Hêmâdri-kalaśâ",
+      "masked_text": "śubham astu śôbhanam astu śrî-Râmachandra-paripûjita-śrî-Râmêśvarâya namaḥ namas tuṅga c Harêr lîlâ-varâhasya damshṭrâ-daṇḍas sa pâtu vaḥ [...] yatra dhâtrî chchhatra-śriyaṁ dadhau svasti śrî vijayâbhyudaya-Śâlivâhana-śaka-varshaṅgaḷu 1552 nê vartamânav âda Pramôdûta-saṁvatsarada Vaiśâkha-śuddha 5 llu śrîmad-dêva-dêvôttama dêvatâ-sârvabhaumar âda śrî-Râmêśvara-svâmiyavara divya-charaṇâravindagaḷa sêvege śrîmad-râjâdhirâja râja-paramêśvara śrî-vîra-pratâpa Śrî-Raṅga-Dêva-mahârâyaraiyanavaru Ghanagiriya ratna-simhâsanârûḍhar âgi pṛithvî-sthira-sâmbrâjyaṁ geyyut iralu nimma priya-bhaktar âda chaturtha-gôtrada Yalahaka-nâḍa prabhugaḷ âda Kempa-Nañje-Gauḍara pautrar âda Hiri-Kempê-Gauḍara putrar âda Yimmaḍi-Kempê-Gauḍaru binnahaṁ mâḍi barasi koṭṭa tâmra-śâsanada kramav eut endare Mâgaḍi-sîmege saluva Kañchugârrahaḷḷi Hâlusiṅganahaḷi yi-grâma-yaraḍannu samarpisten âda-kâraṇa yî-grâmagaḷige saluva chatus-sîmey-oḷaguḷa nidhi-nikshêpa-jala-pâshâṇa-akshîṇi-âgâmi-siddha-sâdhyaṅgaḷ emba ashṭa-bhôga-têjas-svâmyaṅgaḷanu dânâdhi-kraya-vinimayaṅgaḷige yôgyav âgi nitya-kaṭle-paḍitara-dîpârâdhane-mahâ-rathôtsava-parva-tithi-sakala-utsavagaḷannu nammalli pûrna-kaṭâkshav iṭṭu aṅgîkarisi nanige ishṭâbhishṭ-aṅgaḷannu koṭṭu rakshisabêk endu binnahaṁ mâḍi barasi koṭṭa tâmbra-śâsanâ sva-dattâd dvi-guṇaṁ puṇyaṁ para-dattânupâlanaṁ para-dattâpahârêṇa sva-dattaṁ nishphalaṁ bhavêt sva-dattâm para-dattâm vâ yô harêta vasundharâm shashṭi-varsha-sahasrâṇi vishṭhâyâm jâyatê krimiḥ na vishaṁ visham ity âhuḥ dêva-svaṁ visham uchyatê visham êkâkinaṁ hanti dêva-svaṁ putra-pautrakaṁ yî-dharma doregaḷê âgali udyôgastarê âgali drôha-budhi yaṇisidar-âdare avaru tri-mûrtigaḷigu horagu yiha-parakke salladavaru yî-tâmbra-śâsanavannu niyôgi Veṅkaiyyana mund-iṭṭu râyasta Śêshayyana kaiyali barasida sarvamânyav âgi barasi-koṭa tâmbra-śâsana yî-svâmi-archane âgama sahâ Śikhâmaṇaiyanige Sivârpitavâgi dhâreyan eradu koṭevu Yimmaḍi-Kempê-Gauḍara vapittâ",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "pâtâla-mûla-ghaṭito",
+          "pâtâla-mûla-dṛḍhito",
+          "pâtâla-mûla-stambho 'yaṁ"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "Hêmâdri-kalaśâ",
+          "Hêmâdri-śikharâ",
+          "Hêmâdri-kulaśâ"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_005-ma-2",
+      "masked_word": "Plavaṅga-saṁvatsarada",
+      "masked_text": "svasti śrî vijayâbhyudaya-Śâlivâhana-śaka-varushaṅgaḷu 1592 yeraḍaneya vartamânav âda [...] Vaiśâkha-śudha 10 yalu śrîmatu dêva-dêvôttama dêvatâ-sârvabhaumar âda śrî-Vîrêśvara-svâmiyavara divya-śrî-pâda-padmaṅgaḷa sêvege śrîmad-râjâdhirâja râja-paramêśvara śrî-vîra-pratâpa-Śrî-Raṅga-Dêva-mahârâyaraiyanavaru Ghanagiriyallu ratna-simhâsanârûḍhar âgi pruthivi-sthira-sâmrâjyaṁ gaiyutt iralu nimma priya-bhaktan âda Sadâśiva-gôtrada Yalahaṅka-nâḍa prabhugaḷ âda Kempa-Nañjê-Gauḍara pautrar âda Hiriya-Kempê-Gauḍara putrar âda Yimmaḍi-Kempê-Gauḍaru binnahaṁ mâḍi barasi-koṭṭa tâmbra-śâsanada kramav ent endare Mâgaḍisîmege saluva Hañchikupe Vô a Atimigere Kempâpura saha 4 nu samarpisi yidhêv âda-kâraṇa yî-grâmaṅgaḷige saluva chatus-sîmeyo'ḷa-uḷa nidhi-nikshêpa-jaḷa-pâshâṇa-akshîṇi--âgâmi-siddha-sâdhyaṅgaḷ emba ashṭa-bhôga-têjas-svâmyangaḷannu dânâdhi-kraya-vinimaya-bhôgyaṅgaḷige yôgyav âgi nitya-śrî nitya-maṅgaḷav âgi â-chandrârkav âgi dêvara sêvârtthav âgi nitya-śrî nitya-kaṭṭle-paḍitara-dîpârâdhane-mahârathôtsava-pakshôtsava--parva-tithi-sakala-utsavaṅgaḷanu nannalli pûrna-kaṭâkshav iṭṭu aṅgîkarisi nanage yishṭâbhishṭaṅgaḷa koṭu rakshisabêk endu binnahaṁ mâḍi barasikoṭa tâmbra-śâsana yi-dêvastânada stânikanâda Liṅgamaya dêvastânada abhimâna Namaśśvâya-Śikhâmaṇi-likshitarige Śivârpitav âgi koṭevu sunka giḍa-gâvalu biḍumaṇiyu aramane ge kâraṇav ila yî-tâmbra-śâsanavanu niyôgi-Kônapanu Yeṅgaṭagiraiyana mund iṭu râyasada Eṅkapana kaiya sarva-namasyav âgi barasi koṭa tâmbra-śâsana Yimmaḍi-Kempê-Gauḍara vapitâ",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "Sâdhâraṇa-nâma-saṁvatsarada",
+          "Sâdhâraṇa-saṁvatsarada",
+          "Sâdhâraṇa-saṁvatsara"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "Sâdhâraṇa-saṁvatsarada",
+          "Sâdhâraṇa-nâma-saṁvatsarada",
+          "Saumyâbhidha-saṁvatsarada"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_006-ma-42",
+      "masked_word": "Nandana-saṁvatsarada",
+      "masked_text": "namas tuṅga c svasti śrî vijayâbhyudaya-Śâlivâhana-śaka-varushaṅgaḷu 1634 neya [...] Vaiśâkha-bahuḷa 5 lu śrîmad-râjâdhirâja râja-paramêśvara Śrî-Raṅga-Râja-mahârâyarayyanavaru Penugoṇḍeyallu ratna-simhâsanârûḍhar âgi chira-pṛithvî-sâmbrâjyavaṁ gaiütt iral âgi Kâśyapa-gôtrada Yalahaṅka-nâḍa prabhugaḷ âda Mummaḍi-Kempe-Gauḍaraiyanavara pautrar âda Mummaḍi-Vîrappa-Gauḍaraiyanavara putrar âda Mummaḍi-Kempa-Vîrappa-Gauḍarayyanavaru tamma agrahârada yippattu-nâlku vṛittiya mahâjanaṅgaḷige barasi koṭṭa bhû-dâna-dharma-śâsana-kramav ent endare namma Mâgaḍi-sîmege saluva Mâyinâyakanahaḷḷi Mâdanahaḷḷi Hanumâpura Kempasâgarada kereya keḷagaṇa vaḷagereya tôṭadalli sa 200 mara sthaḷa tôṭa saha nâmadhêyav âda Mummaḍi-Kempavîrasâgara agrahâradalli gaṇa-saṅkhê yippatta-nâlkaralli antuv ippattu-nâlku-vṛittiya agrahâravanu Sômêśvara-svâmiyavara pratishṭâ-kâladalli dhârâ-dattav âgi koṭṭev âda-kâraṇa nîvu â-chandrârkav âgi anubhavisikoṇḍu baruvadu endu barasi koṭṭa śîlâ-śâsana",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "Nandana-saṁvatsarada",
+          "Nandana-nâma-saṁvatsarada",
+          "Nandana-saṁvatsara"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      },
+      "few_shot": {
+        "candidates": [
+          "Nandana-saṁvatsarada",
+          "Nandana-nâma-saṁvatsarada",
+          "Nandana-saṁvatsara"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_007-db-63",
+      "masked_word": "Hêmâdri-śikharâ",
+      "masked_text": "namas tuṅga c Harêr lîlâ-varâhasya damshṭrâ-daṇḍas sa pâtu naḥ [...] yatra dhâtrî chhatra-śriyaṁ dadhau svasti śrî vijayâbhyudaya-Śâlivâhana-śaka-varushaṅgaḷu 1637 nê Manmatha-saṁvatsarada Pushya-ba 2 Śukravârada Makara-saṅkrânti-mahâ-puṇya-kâladalu śrîmad-râjâdhirâja râja-paramêśvarâbhivandita śrî-Veṅkaṭêśvara-svâmi Veṅkaṭâchaladallu simhâsanârûḍhar âgi pṛithvî-sâmrâjyaṁ gaivuttâ yiralu chaturtha-gôtrada śrîman-mahâ-Âvati-nâḍa prabhugaḷ âda Immaḍi-Saṇṇa-Bairê-Gauḍarayyanavara pautrar âda Gôpâla-Gauḍarayyanavara putrar âda Doḍḍa-Bairapa-Gauḍarayyanavaru Haritasa-gôtrada Âpastamba-sûtrada Yajuś śâkhâdhyâyigaḷ âda Barûra Tirupati-bhaṭṭara pautrar âda Yalaṁ-bhaṭṭara putrar âda Subbâ-bhaṭṭaravarige koṭṭa êka-bhôgya-grâmada dharma-śâsanâ-kramav ent endare namma Dêvaṇâpurada-râjyakke saluva Sîge-kôṭê-hôbaḷiyalli Kurubarahaḷḷi-upagrâma-sahitav âda Mâvuḷipurakke pratinâmav âda Doḍḍa-Bairasâgarav emba êka-bhôga-sarvamânyâgrahâravanu śrî-Gôpâla-svâmige prîtiy âgi sa-hiraṇyôdaka-dhârâ-pûrvakav âgi tri-karaṇa-tri-vâchakav âgi dhâren eredu koṭṭev âda-kâraṇa î-grâmakke saluva nidhi-nikshêpa-jala pâshâṇa-akshîṇi-âgâmi-siddha-sâdhyaṅgaḷ emba ashṭa-bhôga-têjas-svâmyaṅgaḷûnu nimm a putra-pautra-pâramparyav âgi â-chandrârka-sthâyigaḷ âgi sukhadalli anubhavisikoṇḍu ihudu yandu koṭṭa êka-bhôga-grâma-dânada dharma-śîsana śrî",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "rasātala-samuddhartuḥ",
+          "rasātala-gatāyāś ca",
+          "mṛṇāla-daṇḍa-saṅkāśo"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "Hêmâdri-kalaśâ",
+          "hêmâdri-kalaśâ",
+          "Hêmâdri-kalaśô"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_008-bn-4",
+      "masked_word": "Vishṇavê",
+      "masked_text": "śrî-Veṅkaṭêśvara-svâmi prasanna namas tuṅga-śiraś-chumbi-chandra-châmara-châravê trailôkya-nagarârambha-mûla-stambhâya [...] Harêr lîlâ-varâhasya damshṭrâ-daṇḍas sa pâtu naḥ Hêmâdri-kalaśâ yatra dhâtrî chchhatra-śrîyaṁ dadhau svasti śrî jayâbhyudaya-Śâlivâhana-śaka-varshambulu 1752 diyagu śrîmad-râjâdhirâja râja-mârtâṇḍa râja-têjô-nidhi râja-kaṇṭhîrava prauḍha-pratâpa śrî-Kṛishṇa-Râja-sârvabhaumulavâru pṛithvî-sâmbrâjyaṁ salpuchu ubhaya-Kâvêrî-madhyê ratna-siṁhâsanârûḍhulai uṇḍaga Bhâradvâja-gôtrôtpannasya Vaikhânasa-sûtrê Yajuś-śâkhâdhyâyinê śrî-Veṅkaṭêśvara-Sugrîva-svâmivâriki sahâ Virôdhi-saṁvatsara-Phâlguṇa-śudha 3 lu êkôna-chatvâriṁśad-gôtrôtpannulaina aśêsha-Vîra-Kshatriya Mêlu-S'arkara-vaṁśôtpannulaina sthala-para-sthalaṁ kulasthulu saha mâ kula-daivamaina śrî-Veṅkaṭêśvara-Sugrîva-svâmivâriki sahâ paḍitara-dîpârâdhana-nityôtsava-pakshôtsava-mâsôtsava-saṁvatsarôtsavâdi-utsavamulu naḍipiñchêṭanduku mêmê mêmai mâ kula-daivamulaku vrâyiñchi ichina dâna-śâsana-kramaṁ eṭlaṇṭe Bangaḷûruvâru saṁ 1 kuḷaṁ 1 ki rûkalu 3 Gôkulâshṭami ½ Navarâtriki ½ peṇḍli 1 ki ʿ 3 yî-mêraku yîgalavâramu yidigâka para-sthalaṁvâru vrâyiñchi ichinadi saṁ 1 ku 1 rûka ʿ 1 peṇḍli 1 ki rûka ½ yî-mêraku sthala-para-sthalaṁvâru saha mêmai mêmu mâ svakîyamaina manô-vappitanuñchi vappi vrâyiñchi yichchina dâna-śâsanam ravi-yindu-kulâchala-bhû-dêvâtâkâśa-vâṇi sapta-sâgaramul unnadâka mâ vaṁśânukramamuga putra-pautra-pâramparyâyamuga yî-mêraku naḍapukoni râgalavâram ani mêmu vrâyiñchi yichchina dâna-śâsanam yinduku vighnaṁ śâyaka mâ kula-daivamunaku utsavamula naḍipiñchêvâriki chêra-dagadi yî-dharmâniki yevaraina drôhaṁ chêsinaṭṭaitê vâralaku gô-hatya-śiśu-hatya-strî-hatya-bramha ha tya-bhrûṇa-hatya-svarṇa-stêya-guru-dârâbhigamana vṛishali-maithunâdi-pâpamulaku pôdur ani vrâyiñchi ichchina dâna-śâsanam sahi yî-modalaina padi-janaṁ kulasthulu mâ khuddu râjina vrâyiñchi yichchina śâsanam sahi yinduku sâkshulu Hari-Harâdulu sûrya-chandrulu dharma-dêvatâ-âkâśa-vâṇi-bhû-dêvatula sâkshi vêsi vrâyiñchi yichchina dâna-śâsanam sahi",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "śambhavê",
+          "śambhavê ||",
+          "Śambhavê"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "śambhavê",
+          "śambhavê ||",
+          "śambhavê |"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_009-dv-51",
+      "masked_word": "Hêmâdri-kalaśâ",
+      "masked_text": "Harêr lîlâ-varâhasya damshṭrâ-daṇḍas sa pâtu vaḥ [...] yatra dhâtrî chhatra-śriyaṁ dadhau svasti śrî vijayâbhyudaya-Śâlivâhana-śaka-varushaṅgaḷu 1619 nê varusha Śaka saluva Yîśvara-nâma-saṁvatsarada Kârtika-śuddha 15 Bhaumavâra-sômôparâga-puṇya-kâladalu śrîmad-râjâdi râja śrî-Veṅkaṭêśvara-svâmiyavaru Veṅkaṭâchaladali ratna-siṁhâsanârûḍhar âgi pṛithiyî-sâmrâjyaṁ gaivutâiralu chaturtha-gôtrada śrîmaṁ-mahâ-Âvati-nâḍa prabhuvugaḷ âda Muddu-Baire-Gauḍarayyanavara pautrar âda Yimmaḍi-Soṇṇa-Bayire-Gauḍara putrar âda Gôpâla-Gauḍarayyanavaru koṭṭa agrahârada dharma-śilâ-śâsana-kramav ent endare namma Dêvaṇapurada râjyakke Nallûru-hôbaḷige Bêgûrige prati-nâmavâda Gôpâlasâgarav emba sarvvamânyad-agrahâradalu gaṇa-saṅkhye yippatt-aydu 25 vṛittiyanu śrî-Madana-Gôpâla-svâmige",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "hêmâdri-kalaśâ",
+          "hêmâdri-kalaśa",
+          "hêmâdri-kûṭâ"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      },
+      "few_shot": {
+        "candidates": [
+          "Hêmâdri-kalaśâ",
+          "Hêmâdri-śikharâ",
+          "Hêmâdri-kûṭâ"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_010-ht-155",
+      "masked_word": "Śaka-varsha",
+      "masked_text": "svasti śrî [...] 1355 ḍaneya śrî-Pramâdîcha-saṁvatsarada Mârggasira-su 10 Sa śrîman-mahârâjâdhirâja râja-paramêśvara śrî-vîra-pratâpa-Dêva-Râya-mahârâyaru sakala-sâmbrâjyaṁ geyutaṁ viralu śrîman-mahâ-mûvaru-râ yara-gaṇḍa rakiya Pemmaya-Nâyakara makaḷu Pemmaya-Nâyakaru prithuvî-râjyaṁ geyuvali Toṟavaḷi-nâḍa mahâ-prabhu Mâchi-Dêvana Dêvi-jîya Dêvi-jîyana maga Choki-jîya Choki-jîyana maga Dêvi-jîyanu Tirumala-dêvara sêvege mâḍisida kambhake maṅgaḷa mahâ śrî dêvara nayavêdyakke hola 4 gadde khaṁ 1 gavanu salisi bahenu",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "Śaka-varṣa",
+          "Śaku",
+          "Jayâbhyudaya-Śaka-varṣa"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "vijayâbhyudaya-Śâlivâhana-śaka-varusha",
+          "jayâbhyudaya-Śâlivâhana-śaka-varusha",
+          "Śâlivâhana-śaka-varusha"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    }
+  ]
+}
