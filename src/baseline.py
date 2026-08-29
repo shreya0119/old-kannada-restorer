@@ -29,4 +29,7 @@ def frequency_baseline(masked_text: str, corpus_examples: List[Dict[str, Any]]) 
     # Filter out common exclusion boilerplate words if present
     exclusions = {"śrî", "svasti", "namaḥ", "śubham", "râja", "saha"}
     filtered_counts = [w for w in counts.most_common(10) if w[0] not in exclusions]
+
+    print("Top 10 most common words:", counts.most_common(10))
+
     return filtered_counts[0][0] if filtered_counts else counts.most_common(1)[0][0]

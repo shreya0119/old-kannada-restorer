@@ -1,9 +1,9 @@
 {
   "aggregate": {
-    "total_evaluated": 10,
-    "baseline": "Baseline (Raw): 0/10 exact | Baseline (Normalized): 0/10 exact",
-    "zero_shot": "Zero-shot (Raw): 3/10 exact, 3/10 top-3 | Zero-shot (Normalized): 3/10 exact, 3/10 top-3",
-    "few_shot": "Few-shot (Raw): 4/10 exact, 4/10 top-3 | Few-shot (Normalized): 4/10 exact, 4/10 top-3"
+    "total_evaluated": 12,
+    "baseline": "Baseline (Raw): 0/12 exact | Baseline (Normalized): 0/12 exact",
+    "zero_shot": "Zero-shot (Raw): 3/12 exact, 3/12 top-3 | Zero-shot (Normalized): 3/12 exact, 3/12 top-3",
+    "few_shot": "Few-shot (Raw): 5/12 exact, 5/12 top-3 | Few-shot (Normalized): 5/12 exact, 5/12 top-3"
   },
   "per_inscription_results": [
     {
@@ -319,6 +319,70 @@
           "vijayâbhyudaya-Śâlivâhana-śaka-varusha",
           "jayâbhyudaya-Śâlivâhana-śaka-varusha",
           "Śâlivâhana-śaka-varusha"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_011-an-1",
+      "masked_word": "Dêva-Râya-mahârâyaru",
+      "masked_text": "svasti śrîman-mahâ-maṇḍalêśvara ari-râya-vibhâḍa bhâshege tappuva râyara gaṇḍa mûvaru-râyara gaṇḍa pûrva-paśchima-vuttara samudrâdhipati mahârâjâdhirâja râja-paramêśvara śrî-vîra-pratâpa-Vijaya-Dêva-Râyara kumâraru [...] pṛithvî-râjyaṁ geydali 1352 Saka-varsha salluva Saumya-saṁvatsarada dvitîya-Bhâdrapada Sô-lu chandra-grahaṇa-puṇya-kâladallu śrîman-mahâ-maṇ varu-râyara-gaṇḍa ya-Nâyakara makkaḷu Mayagaya-Nâyaka",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "śrî-vîra-Pratâpa-Dêva-Râyaru",
+          "Pratâpa-Dêva-Râyaru",
+          "Dêva-Râyaru"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "Dêva-Râya-mahârâyaru",
+          "śrî-Dêva-Râyaru",
+          "Dêva-Râyaru"
+        ],
+        "exact_match_raw": true,
+        "exact_match_normalized": true,
+        "top3_match_raw": true,
+        "top3_match_normalized": true
+      }
+    },
+    {
+      "id": "EC_VOL_9_INS_012-cg-66",
+      "masked_word": "Kaivalyâkhya-mahâ-yôgiṁ",
+      "masked_text": "śubham astu śrîmat-parama-haṁsânâṁ parivrâjaka-sattamam [...] sadâ jñânaika-tatparam Bêlûru-Kṛishṇa-bhûpas tu âhûya ya kuñjaram Mûdravaḷḷî cha grâmas tu dattaṁ Kṛishṇârppaṇaṁ śubham kimartham dattam ity uktê",
+      "baseline": {
+        "prediction": "âda",
+        "exact_match_raw": false,
+        "exact_match_normalized": false
+      },
+      "zero_shot": {
+        "candidates": [
+          "yatīndraṁ",
+          "śrī-guruṁ",
+          "pūjyapādaṁ"
+        ],
+        "exact_match_raw": false,
+        "exact_match_normalized": false,
+        "top3_match_raw": false,
+        "top3_match_normalized": false
+      },
+      "few_shot": {
+        "candidates": [
+          "guruṁ",
+          "yatîndraṁ",
+          "śântaṁ"
         ],
         "exact_match_raw": false,
         "exact_match_normalized": false,

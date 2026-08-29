@@ -139,8 +139,8 @@ def evaluate():
         inscriptions = json.load(f)
 
     os.makedirs("results", exist_ok=True)
-    out_path = os.path.join("results", "old-eval_results.json")
-    tmp_path = os.path.join("results", "old-eval_results.json.tmp")
+    out_path = os.path.join("results", "eval_results.json")
+    tmp_path = os.path.join("results", "eval_results.json.tmp")
 
     per_inscription_results = []
     completed_ids = set()
