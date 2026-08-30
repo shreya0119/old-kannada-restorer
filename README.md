@@ -77,5 +77,5 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 ## Acknowledgements
 
 - Text data drawn from **Epigraphia Carnatica, Volume IX**, compiled by B. Lewis Rice; accessed via the **Internet Archive's** digitized hOCR and OCR-confidence files.
-- **ERC-DHARMA** (CNRS), for its critically-edited digital edition of Epigraphia Carnatica, used for informal testing of Mode 2 against scholarly ground truth.
+- **ERC-DHARMA** [https://github.com/erc-dharma/tfb-ec-epigraphy], for its critically-edited digital edition of Epigraphia Carnatica, used for informal testing of Mode 2 against scholarly ground truth.
 - Background image: Halmidi inscription (450 CE) photograph by Dineshkannambadi, CC BY-SA 3.0, via Wikimedia Commons.
