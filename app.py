@@ -16,6 +16,10 @@ def apply_stone_theme():
         """
         <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Spectral:wght@400;700&family=Yatra+One&display=swap');
+        @font-face {
+            font-family: 'Samarkan';
+            src: url('https://dl.dafont.com/dl/?f=samarkan') format('truetype');
+        }
 
         :root {
             --bg-primary: #201D19;
@@ -257,7 +261,7 @@ def apply_stone_theme():
             position: relative;
             z-index: 1;
             margin: 0;
-            font-family: 'Yatra One', cursive;
+            font-family: 'Samarkan', 'Yatra One', cursive;
             font-size: 2.4rem;
             color: #352315 !important;
             -webkit-text-fill-color: #352315 !important;
