@@ -82,6 +82,7 @@ def apply_stone_theme():
         /* 6. Mode 1 / Mode 2 tab selector */
         .stTabs [data-baseweb="tab-list"] {
             gap: 10px;
+            justify-content: center;
         }
         .stTabs [data-baseweb="tab"] {
             background-color: var(--bg-surface) !important;
@@ -226,12 +227,47 @@ def apply_stone_theme():
         .candidate-tag {
             display: inline-block;
             background-color: white;
-            color: #D4AF37;
+            color: brown;
             padding: 2px 8px;
             border-radius: 8px;
             font-weight: bold;
             margin-right: 5px;
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* 14. Decorative Scroll Title */
+        .scroll-title-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            margin: 1.5rem 0 2.5rem 0;
+            padding: 0 2rem;
+        }
+        .scroll-title-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            filter: drop-shadow(0 10px 18px rgba(32, 22, 14, 0.45));
+        }
+        .scroll-title-wrap h1.scroll-title-text {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-family: 'Yatra One', cursive;
+            font-size: 2.4rem;
+            color: #352315 !important;
+            -webkit-text-fill-color: #352315 !important;
+            text-align: center;
+            text-shadow: none;
+            padding: 0 1rem;
+        }
+        @media (max-width: 640px) {
+            .scroll-title-text { font-size: 1.5rem; }
+            .scroll-title-wrap { min-height: 110px; }
         }
         </style>
         """,
@@ -283,11 +319,55 @@ def contains_non_latin(text):
     return False
 
 def main():
-    st.markdown("<h1 style='text-align: center; font-size: calc(2.25rem + 2pt);'>Halegannada Inscription Restorer</h1>", unsafe_allow_html=True)
+    st.markdown("""<div class="scroll-title-wrap">
+  <svg class="scroll-title-svg" viewBox="0 0 1000 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="rollerGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#3E2A1C"/>
+        <stop offset="35%" stop-color="#8B5A3C"/>
+        <stop offset="60%" stop-color="#C99A6B"/>
+        <stop offset="85%" stop-color="#8B5A3C"/>
+        <stop offset="100%" stop-color="#3E2A1C"/>
+      </linearGradient>
+      <linearGradient id="rollerGradR" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#3E2A1C"/>
+        <stop offset="35%" stop-color="#8B5A3C"/>
+        <stop offset="60%" stop-color="#C99A6B"/>
+        <stop offset="85%" stop-color="#8B5A3C"/>
+        <stop offset="100%" stop-color="#3E2A1C"/>
+      </linearGradient>
+      <linearGradient id="parchmentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#EFE6D4"/>
+        <stop offset="45%" stop-color="#DDD2BC"/>
+        <stop offset="100%" stop-color="#B7AA8F"/>
+      </linearGradient>
+      <linearGradient id="edgeShadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(58,42,30,0.45)"/>
+        <stop offset="100%" stop-color="rgba(58,42,30,0)"/>
+      </linearGradient>
+      <linearGradient id="edgeShadeR" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="rgba(58,42,30,0.45)"/>
+        <stop offset="100%" stop-color="rgba(58,42,30,0)"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="10" width="70" height="200" rx="35" fill="url(#rollerGradL)"/>
+    <ellipse cx="35" cy="10" rx="35" ry="11" fill="#C99A6B"/>
+    <ellipse cx="35" cy="210" rx="35" ry="11" fill="#3E2A1C"/>
+    <rect x="930" y="10" width="70" height="200" rx="35" fill="url(#rollerGradR)"/>
+    <ellipse cx="965" cy="10" rx="35" ry="11" fill="#C99A6B"/>
+    <ellipse cx="965" cy="210" rx="35" ry="11" fill="#3E2A1C"/>
+    <rect x="55" y="28" width="890" height="164" rx="8" fill="url(#parchmentGrad)"/>
+    <line x1="55" y1="70" x2="945" y2="70" stroke="#B7AA8F" stroke-width="1.5" opacity="0.5"/>
+    <line x1="55" y1="150" x2="945" y2="150" stroke="#B7AA8F" stroke-width="1.5" opacity="0.5"/>
+    <rect x="55" y="28" width="45" height="164" fill="url(#edgeShadeL)"/>
+    <rect x="900" y="28" width="45" height="164" fill="url(#edgeShadeR)"/>
+  </svg>
+  <h1 class="scroll-title-text">Halegannada Inscription Restorer</h1>
+</div>""", unsafe_allow_html=True)
     st.markdown("""
         <p style='font-size: calc(100% + 2pt);'>
             
-        This prototype uses large language models (Gemini & Groq) with few-shot prompting to deduce missing words in transliterated Old Kannada inscriptions. Rather than relying on a custom-trained model, it dynamically builds context using a curated reference dataset to restore damaged text and estimate the dynasty/date of the artifact.
+        This prototype uses large language models with few-shot prompting to deduce missing words in transliterated Old Kannada inscriptions. Rather than relying on a custom-trained model, it dynamically builds context using a curated reference dataset to restore damaged text and estimate the dynasty/date of the artifact.
         </p>
     """, unsafe_allow_html=True)
     st.write("") # Light spacing
@@ -331,7 +411,6 @@ def main():
         st.write("") # spacing
         
         if st.button("Restore", key="btn_mode1"):
-            st.caption("Uses automatic multi-key, multi-provider failover (Gemini + Groq) for reliability.")
             
             with st.spinner("Restoring text and estimating dynasty..."):
                 other_examples = [ins for ins in inscriptions if ins["id"] != selected_id]
@@ -438,7 +517,7 @@ def main():
 # EVAL SUMMARY SECTION GOES HERE
     st.markdown("---")
     st.markdown("### Evaluation Summary (Curated Benchmark)")
-    st.caption("These results are loaded statically from the rigorous evaluation phase (results/eval_results.json) and are not live-recomputed.")
+    st.markdown("<p style='color: #E8D3A2; font-size: 0.9em; font-family: \"Spectral\", serif;'>These results are loaded statically from the rigorous evaluation phase (results/eval_results.json) and are not live-recomputed.</p>", unsafe_allow_html=True)
     
     eval_path = Path("results/eval_results.json")
     if eval_path.exists():
