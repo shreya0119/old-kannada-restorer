@@ -56,18 +56,12 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 - Dynasty prediction skews toward Vijayanagara, reflecting the corpus's composition (6 of 12 inscriptions are Vijayanagara-era). Sanskrit-vocabulary-heavy inscriptions are frequently guessed as Vijayanagara regardless of their actual dynasty.
 - Mode 2 (free-text) testing against inscriptions outside the curated set produced plausible, contextually consistent guesses, but this is illustrative only. There is no ground truth for Mode 2 inputs, so no accuracy claim is made here.
 
-
-![[2.png]]
-
-![[3.png]]
-
-![[4.png]]
-
-![[5.png]]
-
-![[6.png]]
-
-![[7.png]]
+!(img/2.png)
+!(img/3.png)
+!(img/4.png)
+!(img/5.png)
+!(img/6.png)
+!(img/7.png)
 
 ## 📈Future scope
 
