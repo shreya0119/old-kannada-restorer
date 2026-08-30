@@ -55,7 +55,7 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 
 - **Locked evaluation numbers:** Baseline 0/12, Zero-shot 3/12, Few-shot 5/12 exact match.
 - Few-shot outperforms zero-shot, which outperforms the frequency baseline. This is consistent with the hypothesis that in-context examples meaningfully steer restoration, rather than the model simply guessing common words.
-- The standout result is the model's handling of a Śaka-calendar date conversion during dynasty prediction, both correct on Vijayanagara-era hits. The model is doing genuine contextual computation rather than pattern-matching alone.
+- During dynasty prediction, the model correctly converted a Śaka-calendar year from the source text to CE, on both Vijayanagara-era hits. This is unprompted reasoning, not memorized text since the specific date conversion couldn't have been seen precisely in pretraining, unlike restoration outputs.
 - Dynasty prediction skews toward Vijayanagara, reflecting the corpus's composition (6 of 12 inscriptions are Vijayanagara-era). Sanskrit-vocabulary-heavy inscriptions are frequently guessed as Vijayanagara regardless of their actual dynasty.
 - Mode 2 (free-text) testing against inscriptions outside the curated set produced plausible, contextually consistent guesses, but this is illustrative only. There is no ground truth for Mode 2 inputs, so no accuracy claim is made here.
 
