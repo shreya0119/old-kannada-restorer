@@ -48,6 +48,9 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 
 **Scoring:** Predictions are compared against ground truth both as raw strings and after diacritic normalization (circumflex ↔ macron, e.g. `î`/`ī`), at exact-top-1 and top-3 match.
 
+## Workflow
+
+![700](img/flowchart.png)
 ## 🎯Results
 
 - **Locked evaluation numbers:** Baseline 0/12, Zero-shot 3/12, Few-shot 5/12 exact match.
