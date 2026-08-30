@@ -34,6 +34,8 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 
 ## Workflow
 
+![700](img/flowchart.png)
+
 ## 🧠Core logic
 
 **Masking (Mode 1, `evaluate.py`):** Parenthetical editorial notes (e.g. plate-break markers) are stripped before a word is chosen, since they aren't part of the inscription text. From the remaining tokens, the selector skips words under 4 characters, a fixed list of formulaic/boilerplate words (invocations, land-grant verbs, honorific fragments), and a separate list of dynasty names and royal titles; the latter specifically so the model isn't handed the answer to the dynasty-prediction task through the masked word itself. Among what's left, capitalized tokens and longer words (≥6 characters) are preferred, on the heuristic that proper nouns and specific terms make more meaningful restoration targets than common words.
@@ -48,9 +50,6 @@ Text is drawn from **Epigraphia Carnatica, Volume IX** (Bangalore District), c
 
 **Scoring:** Predictions are compared against ground truth both as raw strings and after diacritic normalization (circumflex ↔ macron, e.g. `î`/`ī`), at exact-top-1 and top-3 match.
 
-## Workflow
-
-![700](img/flowchart.png)
 ## 🎯Results
 
 - **Locked evaluation numbers:** Baseline 0/12, Zero-shot 3/12, Few-shot 5/12 exact match.
