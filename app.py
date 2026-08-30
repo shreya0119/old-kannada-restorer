@@ -221,6 +221,18 @@ def apply_stone_theme():
         .eval-table tr:nth-child(odd) {
             background-color: var(--bg-surface);
         }
+
+        /* 13. Candidate Tags */
+        .candidate-tag {
+            display: inline-block;
+            background-color: white;
+            color: #D4AF37;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-right: 5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
         </style>
         """,
         unsafe_allow_html=True
@@ -341,7 +353,7 @@ def main():
                     match_found = False
                     for i, cand in enumerate(candidates, 1):
                         cand_text = cand.get("text", "")
-                        st.write(f"**{i}. {cand_text}**")
+                        st.markdown(f'<span class="candidate-tag">{i}. {cand_text}</span>', unsafe_allow_html=True)
                         st.write(f"*Reasoning:* {cand.get('reasoning', '')}")
                         
                         # Case-insensitive comparison without punctuation
@@ -409,7 +421,8 @@ def main():
                         st.markdown("#### Top Restoration Candidates:")
                         candidates = restore_res.get("candidates", [])
                         for i, cand in enumerate(candidates, 1):
-                            st.write(f"**{i}. {cand.get('text', '')}**")
+                            cand_text = cand.get('text', '')
+                            st.markdown(f'<span class="candidate-tag">{i}. {cand_text}</span>', unsafe_allow_html=True)
                             st.write(f"*Reasoning:* {cand.get('reasoning', '')}")
                             
                     st.write("---")
